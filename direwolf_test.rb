@@ -1,13 +1,12 @@
 require "minitest/autorun"
 require "minitest/pride"
-require_relative 'direwolf'
 
 class DirewolfTest < Minitest::Test
 
   def test_direwolf_has_a_name
-    wolf = Direwolf.new('Nimeria')
+    wolf = Direwolf.new('Nymeria')
 
-    assert_equal 'Nimeria', wolf.name
+    assert_equal 'Nymeria', wolf.name
   end
 
   def test_default_home_is_beyond_the_wall_and_can_have_another_name
@@ -41,7 +40,7 @@ class DirewolfTest < Minitest::Test
   end
 
   def test_starts_off_with_no_Starks_to_protect
-    wolf = Direwolf.new('Nimeria')
+    wolf = Direwolf.new('Nymeria')
     stark = Stark.new('Arya')
 
     assert_equal [], wolf.starks_to_protect
@@ -51,7 +50,7 @@ class DirewolfTest < Minitest::Test
   end
 
   def test_protects_stark_kids
-    wolf = Direwolf.new('Nimeria', 'Riverlands')
+    wolf = Direwolf.new('Nymeria', 'Riverlands')
     stark = Stark.new('Arya', 'Riverlands')
 
     wolf.protects(stark)
@@ -98,7 +97,7 @@ class DirewolfTest < Minitest::Test
   end
 
   def test_protected_status_changes_once_protected
-    wolf = Direwolf.new('Nimeria', "Winterfell")
+    wolf = Direwolf.new('Nymeria', "Winterfell")
     stark_1 = Stark.new('Arya')
     stark_2 = Stark.new('Sansa')
 
@@ -111,7 +110,7 @@ class DirewolfTest < Minitest::Test
   end
 
   def test_hunts_white_walkers_when_not_protecting_starks
-    wolf = Direwolf.new('Nimeria', "Winterfell")
+    wolf = Direwolf.new('Nymeria', "Winterfell")
     stark_2 = Stark.new('Sansa')
 
     assert wolf.hunts_white_walkers?
@@ -156,6 +155,4 @@ class DirewolfTest < Minitest::Test
     assert_equal 'The North Remembers', stark_1.house_words
     assert_equal 'Winter is Coming', stark_3.house_words
   end
-
-
 end
